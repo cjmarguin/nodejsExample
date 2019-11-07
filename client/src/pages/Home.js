@@ -1,8 +1,24 @@
 import React, {Component} from 'react';
 
 class Home extends Component{
+    state = {
+        data:null
+    }
 
-    //write the function to do fetch
+    componentDidMount(){
+        this.callBackend();
+    }
+
+    callBackend = async () => {
+        try{
+            const resp = await fetch('/api');
+            const respJson = await resp.json();
+            console.log(respJson);
+            this.setState({data:respJson});
+        }catch(err){
+            console.log(err);
+        }
+    }
 
     render(){
         return (
