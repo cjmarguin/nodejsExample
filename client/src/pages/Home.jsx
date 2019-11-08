@@ -21,10 +21,14 @@ class Home extends Component{
     }
 
     render(){
-        return (
-            <h1>Everyone hates react</h1>
-        );
+        const data = this.state.data;
+        var results = data.results;
+        var itemList = '';
+        for(var i =0; i< results.length; i++){
+            itemList += results[i].item + ', ';
+        }
+        return React.createElement('div', null, `React is bad: ${itemList}`)
     }
 }
-
+//
 export default Home;
