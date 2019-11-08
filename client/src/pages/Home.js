@@ -22,10 +22,12 @@ class Home extends Component{
 
     render(){
         const data = this.state.data;
-        var results = data.results;
         var itemList = '';
-        for(var i =0; i< results.length; i++){
-            itemList += results[i].item + ', ';
+        if(data){
+            var results = data.results;
+            for(var i =0; i< results.length; i++){
+                itemList += results[i].item + ', ';
+            }
         }
         return React.createElement('div', null, `React is bad: ${itemList}`)
     }
